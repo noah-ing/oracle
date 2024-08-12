@@ -29,7 +29,7 @@
 services:
 
   app:
-    image: ghcr.io/maybe-finance/maybe:latest
+    image: ghcr.io/noah-ing/oracle:latest
 
     volumes:
       - app-storage:/rails/storage
