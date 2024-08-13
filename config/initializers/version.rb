@@ -1,16 +1,11 @@
-module Maybe
+module Oracle
   class << self
     def version
-      Semver.new(semver)
+      @version ||= Semver.new(ENV.fetch("APP_VERSION", "0.1.0"))
     end
 
     def commit_sha
-      `git rev-parse HEAD`.chomp
+      @commit_sha ||= ENV.fetch("APP_COMMIT_SHA", "unknown")
     end
-
-    private
-      def semver
-        "0.1.0-alpha.14"
-      end
   end
 end
